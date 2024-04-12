@@ -3,6 +3,8 @@ from django.urls import path
 from invoice import views
 
 
+
+
 urlpatterns = [
     # 一覧画面
     path('',  views.InvoiceFilterView.as_view(template_name = "invoice/invoice_filter.html"), name='index'),
@@ -16,5 +18,7 @@ urlpatterns = [
     path('delete/<int:pk>/', views.InvoiceDeleteView.as_view(template_name = "invoice/invoice_confirm_delete.html"), name='delete'),
     
     path("index/",views.HomeTemplateView.as_view(template_name = "invoice/index.html"), name="blogs"),
-
+    
+    path("one/",views.OneTemplateView.as_view(template_name = "invoice/number_one.html"), name="number_one"),
+    
 ]

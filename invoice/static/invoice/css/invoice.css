@@ -48,3 +48,8 @@ table th {
     margin-bottom: 30px;
     color: #7b5544;
 }
+.img_welcome {
+    text-align: center;
+    width:350px;
+    height:150px;
+}

@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>注文アプリ</title>
+        <title>モバイルオーダー</title>
         {# Load CSS and JavaScript #}
         {% bootstrap_css %}
         <link href="{% static 'invoice/css/invoice.css' %}" rel="stylesheet">
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-8 offset-sm-2">
                     
-                    
+                    {{ number_one }}
                     
                     <div class="clearfix">
                         <div class="col no-gutters">
@@ -34,9 +34,11 @@
                             <a class="btn btn-outline-secondary command save" href="#">注文登録</a>
                         </div>
                     </div>
+                    
                     <div>
                         {% bootstrap_formset_errors formset %}
                     </div>
+                    
                     <form method="post" class="form" id="myform">
                         {% csrf_token %}
                         {{ formset.management_form }}

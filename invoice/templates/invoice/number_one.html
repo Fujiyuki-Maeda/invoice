@@ -12,21 +12,27 @@
         {# Load CSS and JavaScript #}
         {% bootstrap_css %}
         <link href="{% static 'invoice/css/invoice.css' %}" rel="stylesheet">
+        
     </head>
     <body>
         <div class="container-fluid">
             
             <div class="clearfix">
                 <div class="col no-gutters">
-                    <img class="img-fluid" src="/static/invoice/img/thanks.png" alt="">
+                    <img class="img-fluid" src="/static/invoice/img/welcome.png" alt="">
                 </div>
-                <h2>{{ blogs }}</h2>
-                <h3>ご提供までしばらくお待ちください</h3>
-                <div class="col no-gutters">
-                    <img class="img-fluid" src="/static/invoice/img/fav.png" alt="">
+                <h2>お客様のテーブルNoは{{ number_one }}です
+                </h2>
+                <div class="float-right">
+                    <a class="btn btn-outline-secondary command" id="sendorder" href="{% url 'create' %}">注文画面へ</a>
                 </div>
             </div>
+            
         </div>
+        {% bootstrap_javascript jquery='full' %}
+        <script src="{% static 'invoice/js/one.js' %}"></script>
+        {% block bottom_script %}
+        {% endblock bottom_script %}
     </body>
 
 

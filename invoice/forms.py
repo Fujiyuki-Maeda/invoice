@@ -9,6 +9,9 @@ class InvoiceForm(forms.ModelForm):
     class Meta:
         model = Invoice
         fields = ('customer',)
+        widgets = {
+            'customer': forms.TextInput(attrs={'id': 'custom_id'}),
+        }
 
 
 class InvoiceDetailForm(forms.ModelForm):

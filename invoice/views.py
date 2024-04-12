@@ -14,6 +14,7 @@ from .filters import InvoiceFilter
 from .forms import InvoiceForm, InvoiceDetailFormSet
 from .models import Invoice
 
+from django.shortcuts import render
 
 class FormsetMixin(object):
     object = None
@@ -88,7 +89,7 @@ class InvoiceMixin(object):
             sub_total += detail.amount
 
         # 見出しに小計、消費税、合計、担当者を設定
-        tax = round(sub_total * 0.08)
+        tax = round(sub_total * 0.10)
         total_amount = sub_total + tax
 
         invoice.sub_total = sub_total
@@ -146,6 +147,7 @@ class InvoiceUpdateView(LoginRequiredMixin, InvoiceMixin, FormsetMixin, UpdateVi
     model = Invoice
     form_class = InvoiceForm
     formset_class = InvoiceDetailFormSet
+    
 
 
 class InvoiceDeleteView(LoginRequiredMixin, DeleteView):
@@ -158,4 +160,8 @@ class HomeTemplateView(TemplateView):
         context['blogs'] = "ご注文が確定しました"
         return context
     
-
+class OneTemplateView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['number_one'] = "1"
+        return context

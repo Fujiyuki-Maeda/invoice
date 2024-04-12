@@ -30,7 +30,7 @@ class Item(models.Model):
 
 class Invoice(models.Model):
     customer = models.CharField(
-        verbose_name='テーブルNoを入力してください',
+        verbose_name='お客様のテーブルNoは',
         max_length=100,
     )
 
